@@ -1,0 +1,29 @@
+config
+    set
+        <key>
+        <value>
+    get
+        <key>
+
+resources
+    create
+        --type "video|livestream"
+        --name ""
+    open
+        --slug ""
+        --search ""
+    purge
+        --slug ""
+    caption
+        --slug ""
+    describe
+        --slug ""
+        --preview
+    archive
+        --slug ""
+
+bulk
+    create
+    open
+    caption
+    describe
