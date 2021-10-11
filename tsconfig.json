@@ -1,0 +1,13 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "charset": "UTF-8",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "newLine": "LF",
+        "preserveConstEnums": true,
+        "rootDir": "src/",
+    }
+}

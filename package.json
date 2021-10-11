@@ -1,0 +1,29 @@
+{
+    "name": "nir",
+    "description": "( निर्वाहक ) - A CLI 🚀 for structurally 📡 creating, managing, and storing 📹 video projects.",
+    "version": "4.0.0",
+    "license": "UNLICENSED",
+    "bin": "",
+    "type": "module",
+    "homepage": "https://github.com/nirvahaka/nir#readme",
+    "bugs": "https://github.com/nirvahaka/nir/issues",
+    "author": {
+        "name": "Vasanth Srivatsa",
+        "email": "vasanth@vasanthdeveloper.com",
+        "url": "https://vsnth.dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nirvahaka/nir.git"
+    },
+    "scripts": {},
+    "devDependencies": {
+        "@types/node": "^16.10.3",
+        "prisma": "^3.2.1",
+        "ts-node": "^10.2.1",
+        "typescript": "^4.4.3"
+    },
+    "dependencies": {
+        "@prisma/client": "^3.2.1"
+    }
+}

@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model config {
+    key   String @unique
+    value String
+}
+
+model volume {
+    name  String  @unique
+    path  String
+    video video[]
+}
+
+model video {
+    slug    String @unique
+    title   String
+    status  String
+    youtube String
+
+    created  String
+    archived String
+
+    volume     volume @relation(fields: [volumeName], references: [name])
+    volumeName String
+
+    description String
+}
