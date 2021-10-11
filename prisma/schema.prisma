@@ -16,22 +16,28 @@ model config {
 }
 
 model volume {
-    name  String  @unique
+    name  String  @unique @db.VarChar(100)
     path  String
     video video[]
 }
 
-model video {
-    slug    String @unique
-    title   String
-    status  String
-    youtube String
+enum status {
+    active
+    published
+    archived
+}
 
-    created  String
-    archived String
+model video {
+    slug    String  @unique @db.VarChar(200)
+    title   String  @unique @db.VarChar(100)
+    status  status  @default(active)
+    youtube String? @db.VarChar(11)
+
+    created  DateTime  @default(now())
+    archived DateTime?
 
     volume     volume @relation(fields: [volumeName], references: [name])
-    volumeName String
+    volumeName String @db.VarChar(100)
 
-    description String
+    description String @db.VarChar(5000)
 }
