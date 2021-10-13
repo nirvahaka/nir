@@ -1,5 +1,3 @@
-doctor
-
 config
     set
         <key>
@@ -9,26 +7,34 @@ config
 
 video
     create
+        <name>
         --type "video|livestream"
-        --name ""
     open
-        --slug ""
+        <slug>
         --search ""
     purge
-        --slug ""
+        <slug>
     caption
-        --slug ""
+        <slug>
     describe
-        --slug ""
+        <slug>
         --preview
-    publish
-        --slug ""
-        "ytId"
+    mutate
+        <slug>
     archive
-        --slug ""
+        <slug>
 
 videos
     create
     open
     caption
     describe
+
+volumes
+    create
+        <path>
+        --existing
+    status
+    purge
+        <name>
+        --force
