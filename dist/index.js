@@ -4,4 +4,6 @@
  *  Created On 18 October 2021
  */
 import logger from './logger/index.js';
+import cmds from './cmds/index.js';
 await logger();
+await cmds();

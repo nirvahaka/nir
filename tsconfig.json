@@ -1,6 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "target": "ESNext",
         "alwaysStrict": true,
         "charset": "UTF-8",
         "esModuleInterop": true,
