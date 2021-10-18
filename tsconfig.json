@@ -8,6 +8,7 @@
         "module": "CommonJS",
         "newLine": "LF",
         "preserveConstEnums": true,
-        "rootDir": "src/",
+        "rootDir": "src",
+        "outDir": "dist"
     }
 }
