@@ -3,6 +3,7 @@
     "description": "( निर्वाहक ) - A CLI 🚀 for structurally 📡 creating, managing, and storing 📹 video projects.",
     "version": "4.0.0",
     "license": "UNLICENSED",
+    "type": "module",
     "bin": "node dist/index.js",
     "homepage": "https://github.com/nirvahaka/nir#readme",
     "bugs": "https://github.com/nirvahaka/nir/issues",
@@ -19,7 +20,9 @@
         "dev": "tsc --watch"
     },
     "dependencies": {
-        "@prisma/client": "^3.2.1"
+        "@prisma/client": "^3.2.1",
+        "chalk": "^4.1.2",
+        "itivrutaha": "^2.0.10"
     },
     "devDependencies": {
         "@types/node": "^16.10.3",
