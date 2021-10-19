@@ -5,8 +5,10 @@
 
 import { Command } from 'commander'
 import set from './set/cmd/index.js';
+import get from './get/cmd/index.js';
 
 export default new Command()
     .name('config')
-    .description('Handles configuration of the CLI.')
+    .description('handles configuration of the CLI.')
     .addCommand(set)
+    .addCommand(get)

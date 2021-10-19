@@ -5,15 +5,6 @@
 
 import { db } from '../../../../database/index.js';
 
-// todo: move this function to @vsnthdev/utilities
-const primitiveParse = (value: string) => {
-    try {
-        return JSON.parse(value)
-    } catch {
-        return value
-    }
-}
-
 export const set = async (key: string, value: string) => {
     if (value == 'null')
         return await db.config.delete({
