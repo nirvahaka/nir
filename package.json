@@ -17,14 +17,16 @@
         "url": "https://github.com/nirvahaka/nir.git"
     },
     "scripts": {
-        "dev": "tsc --watch"
+        "dev": "tsc --watch",
+        "build": "rimraf ./dist && tsc"
     },
     "dependencies": {
         "@prisma/client": "^3.2.1",
         "chalk": "^4.1.2",
         "commander": "^8.2.0",
         "es-dirname": "^0.1.0",
-        "itivrutaha": "^2.0.11"
+        "itivrutaha": "^2.0.11",
+        "rimraf": "^3.0.2"
     },
     "devDependencies": {
         "@types/node": "^16.10.3",
