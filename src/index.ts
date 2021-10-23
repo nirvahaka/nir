@@ -3,11 +3,20 @@
  *  Entry executable file for nirvahaka's CLI app.
  *  Created On 18 October 2021
  */
+import dotenv from 'dotenv';
 
 import logger from './logger/index.js'
 import cmds from './cmds/index.js'
 import database from './database/index.js'
 
-await database()
+// load the environment variables
+dotenv.config()
+
+// initialize the logger
 await logger()
+
+// connect to the database
+await database()
+
+// parse command line arguments
 await cmds()

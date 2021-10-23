@@ -6,5 +6,11 @@
 import prisma from '@prisma/client';
 export let db;
 export default async () => {
-    db = new prisma.PrismaClient();
+    // skip connecting to the database when working with the
+    // database URL itself
+    if (process.argv.join(' ').includes('config set database'))
+        return;
+    // only connect to the database if there's one configured
+    if (process.env.DATABASE_URL)
+        db = new prisma.PrismaClient();
 };
