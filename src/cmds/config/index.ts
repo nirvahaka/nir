@@ -3,14 +3,15 @@
  *  Created On 18 October 2021
  */
 
-import { Command } from 'commander'
+import { Command , Option} from 'commander'
 import set from './set/cmd/index.js';
 import get from './get/cmd/index.js';
-import keys from './keys/cmd/index.js';
+import { action } from './config/cmd/index.js';
 
 export default new Command()
     .name('config')
-    .description('handles configuration of the CLI.')
+    .description('reads all config keys & outputs')
+    .addOption(new Option('-f, --format <fmt>', 'format to output in').default('string'))
+    .action(action)
     .addCommand(set)
     .addCommand(get)
-    .addCommand(keys)

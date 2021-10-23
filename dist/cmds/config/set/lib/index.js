@@ -3,6 +3,8 @@
  *  Created On 19 October 2021
  */
 import { db } from '../../../../database/index.js';
+// todo: keep a list of all possible configs and only
+// accept those to avoid pollution or security vulnerabilities.
 export const set = async (key, value) => {
     if (value == 'null')
         return await db.config.delete({
