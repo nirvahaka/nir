@@ -6,13 +6,13 @@ config
         <key>
 
 videos
-    create [multiple]
+    new [multiple]
         <name>
         --type "video|livestream"
     open [multiple]
         <slug>
         --search ""
-    purge
+    remove
         <slug>
     caption [multiple]
         <slug>
@@ -25,9 +25,9 @@ videos
         <slug>
 
 volumes
-    create
+    new
         <path>
         --existing
-    purge
+    remove
         <name>
         --mode "unlink|purge"
