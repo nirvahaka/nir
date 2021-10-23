@@ -6,7 +6,7 @@
 import { Command , Option} from 'commander'
 import set from './set/cmd/index.js';
 import get from './get/cmd/index.js';
-import { action } from './config/cmd/index.js';
+import { action } from './_root/cmd/index.js';
 
 export default new Command()
     .name('config')
