@@ -7,8 +7,8 @@ config
 
 videos
     create [multiple]
-        <names as csv>
-        --type "video|livestream as csv"
+        <name>
+        --type "video|livestream"
     open [multiple]
         <slug>
         --search ""
@@ -30,4 +30,4 @@ volumes
         --existing
     purge
         <name>
-        --force
+        --mode "unlink|purge"
