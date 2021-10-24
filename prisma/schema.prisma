@@ -17,9 +17,9 @@ model config {
 
 model volume {
     name       String  @unique @db.VarChar(100)
-    winPath    String  @db.VarChar(500)
-    linuxPath  String  @db.VarChar(1000)
-    darwinPath String  @db.VarChar(1000)
+    winPath    String? @db.VarChar(500)
+    linuxPath  String? @db.VarChar(1000)
+    darwinPath String? @db.VarChar(1000)
     video      video[]
 }
 
