@@ -28,7 +28,8 @@
         "dotenv": "^10.0.0",
         "es-dirname": "^0.1.0",
         "itivrutaha": "^2.0.11",
-        "rimraf": "^3.0.2"
+        "rimraf": "^3.0.2",
+        "vyuha": "^0.0.1"
     },
     "devDependencies": {
         "@types/node": "^16.10.3",

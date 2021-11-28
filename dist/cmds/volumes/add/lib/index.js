@@ -6,6 +6,8 @@ import os from 'os';
 import path from 'path';
 import { db } from '../../../../database/index.js';
 import fs from 'fs/promises';
+import { create } from 'vyuha';
+import { structure } from './filesystem.js';
 const addVolumeToDatabase = async (name, dir) => {
     const platform = os.platform().replace(/[0-9]/g, '');
     const key = `${platform}Path`;
@@ -35,8 +37,10 @@ const createFileSystem = async (dir, force) => {
     if (dirStats.length != 0 && force == false)
         throw new Error(`Directory is not empty, use --force to override`);
     // now create files!
+    await create(structure, dir);
 };
 export default async ({ name, dir, initialize, force = false }) => {
+    // todo: check if this path is already a volume
     await createFileSystem(dir, force);
     await addVolumeToDatabase(name, dir);
 };
