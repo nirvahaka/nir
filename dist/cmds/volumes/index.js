@@ -4,7 +4,10 @@
  */
 import { Command } from 'commander';
 import add from './add/cmd/index.js';
+import status from './status/cmd/index.js';
 export default new Command()
     .name('volumes')
     .description('outputs status info of one or more volumes')
+    .option('--no-pretty', 'print a pretty table instead of JSON', true)
+    .action(status)
     .addCommand(add);

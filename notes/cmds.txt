@@ -28,9 +28,7 @@ volumes
     add
         <path>
         --existing
-        --activate
-    activate
-        <name>
+        --set-active
     remove
         <name>
         --mode "unlink|purge"

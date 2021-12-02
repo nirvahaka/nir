@@ -8,9 +8,9 @@ import { db } from '../../../../database/index.js';
 import fs from 'fs/promises';
 import { create } from 'vyuha';
 import { structure } from './filesystem.js';
+export const getPlatformPathString = () => `${os.platform().replace(/[0-9]/g, '')}Path`;
 const addVolumeToDatabase = async (name, dir) => {
-    const platform = os.platform().replace(/[0-9]/g, '');
-    const key = `${platform}Path`;
+    const key = getPlatformPathString();
     await db.volume.upsert({
         create: {
             name,

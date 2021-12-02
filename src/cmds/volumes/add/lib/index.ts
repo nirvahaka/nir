@@ -17,9 +17,10 @@ interface AddVolumeImpl {
     force?: boolean
 }
 
+export const getPlatformPathString = () => `${os.platform().replace(/[0-9]/g, '')}Path`
+
 const addVolumeToDatabase = async (name: string, dir: string) => {
-    const platform = os.platform().replace(/[0-9]/g, '')
-    const key = `${platform}Path`
+    const key = getPlatformPathString()
 
     await db.volume.upsert({
         create: {
