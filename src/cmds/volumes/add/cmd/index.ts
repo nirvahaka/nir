@@ -6,6 +6,26 @@
 import { Command } from 'commander'
 import addNewVolume from '../lib/index.js';
 import { logger } from '../../../../logger/index.js';
+import { set } from '../../../config/set/lib/index.js';
+
+const action = async (name, dir, {mode, force, setActive}) => {
+    // add the volume
+    await addNewVolume({
+        name,
+        dir,
+        initialize: mode == 'init',
+        force: Boolean(force)
+    })
+
+    // mark the volume active if required
+    if (setActive) await set('volumes.active', name)
+
+    // notify the user that the volume has been
+    // created and optionally marked as active
+    logger.success(`Added a new volume named ${name}`)
+    if (setActive) logger.info('Volume has been marked active')
+    logger.info('Volume will be assessable from next invocation')
+}
 
 export default new Command()
     .name('add')
@@ -14,14 +34,5 @@ export default new Command()
     .argument('<path>', 'path of the directory on this OS platform')
     .option('--mode <init|link>', 'whether to create directory structure', 'link')
     .option('--force', 'allow initializing on non-empty directory', false)
-    .action(async (name, dir, opts) => {
-        await addNewVolume({
-            name,
-            dir,
-            initialize: opts.mode == 'init',
-            force: Boolean(opts.force)
-        })
-
-        logger.success(`Added a new volume named ${name}`)
-        logger.info('Volume will be assessable from next invocation')
-    })
+    .option('--set-active', 'mark the newly created volume as active', false)
+    .action(action)
