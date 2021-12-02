@@ -29,6 +29,8 @@ volumes
         <path>
         --existing
         --set-active
+    open
+        <name>
     remove
         <name>
         --mode "unlink|purge"
