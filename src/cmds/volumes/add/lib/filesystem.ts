@@ -3,16 +3,16 @@
  *  Created On 04 November 2021
  */
 
-import { VyuhaImpl } from 'vyuha/dist/util/validate/interface';
+import { VyuhaImpl } from 'vyuha/dist/util/validate/interface'
 
 export const structure: VyuhaImpl[] = [
     {
         name: 'Archives',
-        type: 'directory'
+        type: 'directory',
     },
     {
         name: 'Workarea',
-        type: 'directory'
+        type: 'directory',
     },
     {
         name: 'Templates',
@@ -32,19 +32,19 @@ export const structure: VyuhaImpl[] = [
                                 children: [
                                     {
                                         name: 'Sources',
-                                        type: 'directory'
+                                        type: 'directory',
                                     },
                                     {
                                         name: 'Renders',
-                                        type: 'directory'
-                                    }
-                                ]
+                                        type: 'directory',
+                                    },
+                                ],
                             },
                             {
                                 name: 'Script.nir',
-                                type: 'file'
+                                type: 'file',
                             },
-                        ]
+                        ],
                     },
                     {
                         name: 'Media',
@@ -52,11 +52,11 @@ export const structure: VyuhaImpl[] = [
                         children: [
                             {
                                 name: 'Frames',
-                                type: 'directory'
+                                type: 'directory',
                             },
                             {
                                 name: 'Video',
-                                type: 'directory'
+                                type: 'directory',
                             },
                             {
                                 name: 'Audio',
@@ -72,15 +72,15 @@ export const structure: VyuhaImpl[] = [
                                     },
                                     {
                                         name: 'Raw',
-                                        type: 'directory'
-                                    }
-                                ]
-                            }
-                        ]
+                                        type: 'directory',
+                                    },
+                                ],
+                            },
+                        ],
                     },
                     {
                         name: 'Output',
-                        type: 'directory'
+                        type: 'directory',
                     },
                     {
                         name: 'Misc',
@@ -88,16 +88,16 @@ export const structure: VyuhaImpl[] = [
                         children: [
                             {
                                 name: 'Webhooks',
-                                type: 'directory'
+                                type: 'directory',
                             },
                             {
                                 name: 'Downloads',
-                                type: 'directory'
+                                type: 'directory',
                             },
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
 ]

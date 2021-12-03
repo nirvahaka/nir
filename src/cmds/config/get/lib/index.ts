@@ -3,7 +3,7 @@
  *  Created On 19 October 2021
  */
 
-import { db } from '../../../../database/index.js';
+import { db } from '../../../../database/index.js'
 
 // todo: move this function to @vsnthdev/utilities
 export const primitiveParse = (value: string) => {
@@ -18,9 +18,11 @@ export const get = async (key: string) => {
     const value = await db.config.findFirst({
         where: {
             key,
-        }
+        },
     })
 
     if (value == null) return null
-    return (typeof value.value == 'string') ? primitiveParse(value.value) : value.value
+    return typeof value.value == 'string'
+        ? primitiveParse(value.value)
+        : value.value
 }

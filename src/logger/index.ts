@@ -3,10 +3,10 @@
  *  Created On 18 October 2021
  */
 
-import chalk from 'chalk';
-import itivrutaha from 'itivrutaha';
+import chalk from 'chalk'
+import itivrutaha from 'itivrutaha'
 
-export let logger 
+export let logger
 
 const banner = `   ${chalk.redBright('_ __')}    \n ${chalk.redBright(
     ` | '_ \\`,
@@ -27,6 +27,6 @@ export default async () => {
         shutdownLog: false,
         theme: {
             string: ':emoji :type :message',
-        }
+        },
     })
 }

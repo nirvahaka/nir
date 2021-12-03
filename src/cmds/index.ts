@@ -4,22 +4,24 @@
  */
 
 import { Command } from 'commander'
-import fs from 'fs/promises';
-import path from 'path' ;
-import dirname from 'es-dirname';
+import dirname from 'es-dirname'
+import fs from 'fs/promises'
+import path from 'path'
 
-import config from './config/index.js';
-import volumes from './volumes/index.js';
+import config from './config/index.js'
+import volumes from './volumes/index.js'
 
 const program = new Command()
 
 export default async () => {
-    const { name, version } = JSON.parse(await fs.readFile(path.join(dirname(), '..', '..', 'package.json'), 'utf-8'))
+    const { name, version } = JSON.parse(
+        await fs.readFile(
+            path.join(dirname(), '..', '..', 'package.json'),
+            'utf-8',
+        ),
+    )
 
-    program.name(name)
-        .version(version)
-        .addCommand(config)
-        .addCommand(volumes)
+    program.name(name).version(version).addCommand(config).addCommand(volumes)
 
     return await program.parseAsync()
 }

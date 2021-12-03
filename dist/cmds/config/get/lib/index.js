@@ -16,9 +16,11 @@ export const get = async (key) => {
     const value = await db.config.findFirst({
         where: {
             key,
-        }
+        },
     });
     if (value == null)
         return null;
-    return (typeof value.value == 'string') ? primitiveParse(value.value) : value.value;
+    return typeof value.value == 'string'
+        ? primitiveParse(value.value)
+        : value.value;
 };

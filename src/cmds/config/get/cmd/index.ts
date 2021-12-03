@@ -4,13 +4,14 @@
  */
 
 import { Command } from 'commander'
-import { get } from '../lib/index.js';
+
+import { get } from '../lib/index.js'
 
 export default new Command()
     .name('get')
     .description('reads a config entry from the database')
     .argument('<key>', 'the key to read from')
-    .action(async (key) => {
+    .action(async key => {
         const value = await get(key)
         console.log(value)
     })

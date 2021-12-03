@@ -9,15 +9,15 @@ export const set = async (key, value) => {
     if (value == 'null' || value == undefined)
         return await db.config.delete({
             where: {
-                key
-            }
+                key,
+            },
         });
     try {
         await db.config.create({
             data: {
                 key,
                 value,
-            }
+            },
         });
     }
     catch {
@@ -26,8 +26,8 @@ export const set = async (key, value) => {
                 key,
             },
             data: {
-                value
-            }
+                value,
+            },
         });
     }
 };

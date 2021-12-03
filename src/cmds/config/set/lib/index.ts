@@ -3,7 +3,7 @@
  *  Created On 19 October 2021
  */
 
-import { db } from '../../../../database/index.js';
+import { db } from '../../../../database/index.js'
 
 // todo: keep a list of all possible configs and only
 // accept those to avoid pollution or security vulnerabilities.
@@ -12,8 +12,8 @@ export const set = async (key: string, value?: string) => {
     if (value == 'null' || value == undefined)
         return await db.config.delete({
             where: {
-                key
-            }
+                key,
+            },
         })
 
     try {
@@ -21,7 +21,7 @@ export const set = async (key: string, value?: string) => {
             data: {
                 key,
                 value,
-            }
+            },
         })
     } catch {
         await db.config.update({
@@ -29,8 +29,8 @@ export const set = async (key: string, value?: string) => {
                 key,
             },
             data: {
-                value
-            }
+                value,
+            },
         })
     }
 }

@@ -4,10 +4,11 @@
  */
 
 import { Command } from 'commander'
-import add from './add/cmd/index.js';
-import root from './_root/cmd/index.js';
-import open from './open/cmd/index.js';
-import remove from './remove/cmd/index.js';
+
+import root from './_root/cmd/index.js'
+import add from './add/cmd/index.js'
+import open from './open/cmd/index.js'
+import remove from './remove/cmd/index.js'
 
 export default new Command()
     .name('volumes')

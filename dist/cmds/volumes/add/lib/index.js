@@ -2,11 +2,11 @@
  *  Links a new volume to the database by optionally initializing it.
  *  Created On 24 October 2021
  */
+import fs from 'fs/promises';
 import os from 'os';
 import path from 'path';
-import { db } from '../../../../database/index.js';
-import fs from 'fs/promises';
 import { create } from 'vyuha';
+import { db } from '../../../../database/index.js';
 import { structure } from './filesystem.js';
 export const getPlatformPathString = () => `${os.platform().replace(/[0-9]/g, '')}Path`;
 const addVolumeToDatabase = async (name, dir) => {
@@ -14,14 +14,14 @@ const addVolumeToDatabase = async (name, dir) => {
     await db.volume.upsert({
         create: {
             name,
-            [key]: dir
+            [key]: dir,
         },
         where: {
             name,
         },
         update: {
-            [key]: dir
-        }
+            [key]: dir,
+        },
     });
 };
 const createFileSystem = async (dir, force) => {
@@ -39,7 +39,7 @@ const createFileSystem = async (dir, force) => {
     // now create files!
     await create(structure, dir);
 };
-export default async ({ name, dir, initialize, force = false }) => {
+export default async ({ name, dir, initialize, force = false, }) => {
     // todo: check if this path is already a volume
     await createFileSystem(dir, force);
     await addVolumeToDatabase(name, dir);

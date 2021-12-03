@@ -3,16 +3,16 @@
  *  Created On 24 October 2021
  */
 import { Command } from 'commander';
-import addNewVolume from '../lib/index.js';
 import { logger } from '../../../../logger/index.js';
 import { set } from '../../../config/set/lib/index.js';
+import addNewVolume from '../lib/index.js';
 const action = async (name, dir, { mode, force, setActive }) => {
     // add the volume
     await addNewVolume({
         name,
         dir,
         initialize: mode == 'init',
-        force: Boolean(force)
+        force: Boolean(force),
     });
     // mark the volume active if required
     if (setActive)

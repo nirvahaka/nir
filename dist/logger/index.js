@@ -14,6 +14,6 @@ export default async () => {
         shutdownLog: false,
         theme: {
             string: ':emoji :type :message',
-        }
+        },
     });
 };

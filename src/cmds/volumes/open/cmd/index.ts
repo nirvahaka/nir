@@ -4,19 +4,20 @@
  *  Created On 02 December 2021
  */
 
-import { Command } from 'commander';
-import { db } from '../../../../database/index.js';
-import { getPlatformPathString } from '../../add/lib/index.js';
-import open from 'open';
-import { logger } from '../../../../logger/index.js';
-import chalk from 'chalk';
+import chalk from 'chalk'
+import { Command } from 'commander'
+import open from 'open'
 
-const action = async (name) => {
+import { db } from '../../../../database/index.js'
+import { logger } from '../../../../logger/index.js'
+import { getPlatformPathString } from '../../add/lib/index.js'
+
+const action = async name => {
     // get the volume
     const volume = await db.volume.findFirst({
         where: {
             name,
-        }
+        },
     })
 
     // todo: handle if no volume was found
@@ -32,4 +33,3 @@ export default new Command()
     .description('opens a given volume in the default file manager')
     .argument('<name>', 'unique name of the volume')
     .action(action)
-

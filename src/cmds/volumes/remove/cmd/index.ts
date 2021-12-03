@@ -3,24 +3,24 @@
  *  Created On 03 December 2021
  */
 
-
-import { Command } from 'commander';
-import { db } from '../../../../database/index.js';
-import { logger } from '../../../../logger/index.js';
-import { get } from '../../../config/get/lib/index.js';
-import { set } from '../../../config/set/lib/index.js';
-import { getPlatformPathString } from '../../add/lib/index.js';
+import { Command } from 'commander'
 import rimraf from 'rimraf'
 
-const action =  async (name) => {
+import { db } from '../../../../database/index.js'
+import { logger } from '../../../../logger/index.js'
+import { get } from '../../../config/get/lib/index.js'
+import { set } from '../../../config/set/lib/index.js'
+import { getPlatformPathString } from '../../add/lib/index.js'
+
+const action = async name => {
     const isActive = (await get('volumes.active')) == name
     const key = getPlatformPathString()
 
     // get the volume path
     const volume = await db.volume.findFirst({
         where: {
-            name
-        }
+            name,
+        },
     })
 
     // todo: handle when no volume is found
@@ -30,8 +30,8 @@ const action =  async (name) => {
     // delete from the database
     await db.volume.delete({
         where: {
-            name
-        }
+            name,
+        },
     })
 
     // optionally, remove the volumes.active config
@@ -45,6 +45,6 @@ const action =  async (name) => {
 
 export default new Command()
     .name('remove')
-    .description('deletes a given volume including it\'s content')
+    .description("deletes a given volume including it's content")
     .argument('<name>', 'unique name of the volume')
     .action(action)

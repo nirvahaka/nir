@@ -4,17 +4,18 @@
  */
 
 import { Command } from 'commander'
-import addNewVolume from '../lib/index.js';
-import { logger } from '../../../../logger/index.js';
-import { set } from '../../../config/set/lib/index.js';
 
-const action = async (name, dir, {mode, force, setActive}) => {
+import { logger } from '../../../../logger/index.js'
+import { set } from '../../../config/set/lib/index.js'
+import addNewVolume from '../lib/index.js'
+
+const action = async (name, dir, { mode, force, setActive }) => {
     // add the volume
     await addNewVolume({
         name,
         dir,
         initialize: mode == 'init',
-        force: Boolean(force)
+        force: Boolean(force),
     })
 
     // mark the volume active if required
@@ -32,7 +33,11 @@ export default new Command()
     .description('creates or registers a new volume')
     .argument('<name>', 'unique name of the volume')
     .argument('<path>', 'path of the directory on this OS platform')
-    .option('--mode <init|link>', 'whether to create directory structure', 'link')
+    .option(
+        '--mode <init|link>',
+        'whether to create directory structure',
+        'link',
+    )
     .option('--force', 'allow initializing on non-empty directory', false)
     .option('--set-active', 'mark the newly created volume as active', false)
     .action(action)
