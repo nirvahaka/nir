@@ -4,14 +4,14 @@
  */
 import { Command } from 'commander';
 import add from './add/cmd/index.js';
-import status from './status/cmd/index.js';
+import root from './_root/cmd/index.js';
 import open from './open/cmd/index.js';
 import remove from './remove/cmd/index.js';
 export default new Command()
     .name('volumes')
     .description('outputs status info of one or more volumes')
     .option('--no-pretty', 'print a pretty table instead of JSON', true)
-    .action(status)
+    .action(root)
     .addCommand(add)
     .addCommand(open)
     .addCommand(remove);
