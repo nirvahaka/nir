@@ -12,7 +12,7 @@ import remove from './remove/cmd/index.js'
 
 export default new Command()
     .name('volumes')
-    .description('outputs status info of one or more volumes')
+    .description('prints a table of all volumes')
     .option('--no-pretty', 'print a pretty table instead of JSON', true)
     .action(root)
     .addCommand(add)
