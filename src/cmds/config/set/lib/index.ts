@@ -8,8 +8,8 @@ import { db } from '../../../../database/index.js';
 // todo: keep a list of all possible configs and only
 // accept those to avoid pollution or security vulnerabilities.
 
-export const set = async (key: string, value: string) => {
-    if (value == 'null')
+export const set = async (key: string, value?: string) => {
+    if (value == 'null' || value == undefined)
         return await db.config.delete({
             where: {
                 key

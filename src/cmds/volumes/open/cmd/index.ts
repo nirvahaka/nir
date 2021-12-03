@@ -29,7 +29,7 @@ const action = async (name) => {
 
 export default new Command()
     .name('open')
-    .description('open a volume in default file manager')
+    .description('opens a given volume in the default file manager')
     .argument('<name>', 'unique name of the volume')
     .action(action)
 

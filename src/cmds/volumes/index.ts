@@ -7,6 +7,7 @@ import { Command } from 'commander'
 import add from './add/cmd/index.js';
 import status from './status/cmd/index.js';
 import open from './open/cmd/index.js';
+import remove from './remove/cmd/index.js';
 
 export default new Command()
     .name('volumes')
@@ -15,3 +16,4 @@ export default new Command()
     .action(status)
     .addCommand(add)
     .addCommand(open)
+    .addCommand(remove)

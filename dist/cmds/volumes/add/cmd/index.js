@@ -26,7 +26,7 @@ const action = async (name, dir, { mode, force, setActive }) => {
 };
 export default new Command()
     .name('add')
-    .description('creates or registers a new volume in the database')
+    .description('creates or registers a new volume')
     .argument('<name>', 'unique name of the volume')
     .argument('<path>', 'path of the directory on this OS platform')
     .option('--mode <init|link>', 'whether to create directory structure', 'link')
