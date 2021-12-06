@@ -21,7 +21,15 @@ const action = async (name) => {
     // todo: handle when no volume is found
     // delete from the filesystem
     rimraf.sync(volume[key]);
-    // delete from the database
+    // first delete all the videos and then
+    // the volume itself from the database
+    await db.video.deleteMany({
+        where: {
+            volume: {
+                name,
+            },
+        },
+    });
     await db.volume.delete({
         where: {
             name,
