@@ -7,8 +7,9 @@ import { DateTime } from 'luxon'
 import path from 'path'
 import rcp from 'recursive-copy'
 
-import { db } from '../../../../database/index.js'
-import { getPlatformPathString } from '../../../volumes/add/lib/index.js'
+import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js'
+import { db } from '~database/index.js'
+
 import { volume } from '.prisma/client'
 
 const filesystem = async (video, volume: volume) => {

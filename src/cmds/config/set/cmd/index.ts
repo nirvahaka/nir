@@ -9,7 +9,8 @@ import dirname from 'es-dirname'
 import fs from 'fs/promises'
 import path from 'path'
 
-import { logger } from '../../../../logger/index.js'
+import { logger } from '~logger/index.js'
+
 import { set } from '../lib/index.js'
 
 const setDatabaseURL = async url => {

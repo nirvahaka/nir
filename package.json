@@ -20,6 +20,12 @@
         "dev": "tsc --watch",
         "build": "rimraf ./dist && tsc"
     },
+    "aliases": {
+        "~database": "dist/database",
+        "~logger": "dist/logger",
+        "~cmds": "dist/cmds",
+        "~util": "dist/utilities"
+    },
     "dependencies": {
         "@prisma/client": "^3.6.0",
         "@vsnthdev/utilities-node": "^2.0.1",

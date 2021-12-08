@@ -5,8 +5,8 @@
 
 import chalk from 'chalk'
 
-import { get } from '../../cmds/config/get/lib/index.js'
-import { logger } from '../../logger/index.js'
+import { get } from '~cmds/config/get/lib/index.js'
+import { logger } from '~logger/index.js'
 
 export default async () => {
     const activeVolume = await get('volumes.active')

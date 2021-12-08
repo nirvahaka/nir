@@ -3,7 +3,7 @@
  *  Created On 19 October 2021
  */
 
-import { db } from '../../../../database/index.js'
+import { db } from '~database/index.js'
 
 export const keys = async () => {
     const all = await db.config.findMany()

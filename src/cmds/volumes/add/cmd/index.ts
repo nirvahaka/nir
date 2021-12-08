@@ -5,8 +5,9 @@
 
 import { Command } from 'commander'
 
-import { logger } from '../../../../logger/index.js'
-import { set } from '../../../config/set/lib/index.js'
+import { set } from '~cmds/config/set/lib/index.js'
+import { logger } from '~logger/index.js'
+
 import addNewVolume from '../lib/index.js'
 
 const action = async (name, dir, { mode, force, setActive }) => {

@@ -8,7 +8,8 @@ import os from 'os'
 import path from 'path'
 import { create } from 'vyuha'
 
-import { db } from '../../../../database/index.js'
+import { db } from '~database/index.js'
+
 import { structure } from './filesystem.js'
 
 interface AddVolumeImpl {

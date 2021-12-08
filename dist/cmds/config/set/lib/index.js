@@ -2,7 +2,7 @@
  *  Library function that writes a config key into the database.
  *  Created On 19 October 2021
  */
-import { db } from '../../../../database/index.js';
+import { db } from '~database/index.js';
 // todo: keep a list of all possible configs and only
 // accept those to avoid pollution or security vulnerabilities.
 export const set = async (key, value) => {

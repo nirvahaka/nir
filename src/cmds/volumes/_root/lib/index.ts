@@ -4,8 +4,8 @@
  *  Created On 01 December 2021
  */
 
-import { db } from '../../../../database/index.js'
-import { getPlatformPathString } from '../../add/lib/index.js'
+import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js'
+import { db } from '~database/index.js'
 
 export default async () => {
     // get all volumes from the database

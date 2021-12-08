@@ -8,8 +8,9 @@ import chalk from 'chalk'
 import { Command } from 'commander'
 import open from 'open'
 
-import { db } from '../../../../database/index.js'
-import { logger } from '../../../../logger/index.js'
+import { db } from '~database/index.js'
+import { logger } from '~logger/index.js'
+
 import { getPlatformPathString } from '../../add/lib/index.js'
 
 const action = async name => {

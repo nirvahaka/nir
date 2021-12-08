@@ -10,6 +10,21 @@
         "newLine": "LF",
         "preserveConstEnums": true,
         "rootDir": "src",
-        "outDir": "dist"
+        "outDir": "dist",
+        "baseUrl": "src",
+        "paths": {
+            "~database/*": [
+                "database/*"
+            ],
+            "~logger/*": [
+                "logger/*"
+            ],
+            "~cmds/*": [
+                "cmds/*"
+            ],
+            "~util/*": [
+                "utilities/*"
+            ]
+        }
     }
 }
