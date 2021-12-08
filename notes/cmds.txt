@@ -6,23 +6,28 @@ config
         <key>
 
 videos
-    add [multiple]
-        <name>
-        --type "video|livestream"
-    open [multiple]
-        <slug>
-        --search ""
+    add
+    open
+        [queries...]
+        --multiple
+        Note: "latest" will automatically get the last created video
     remove
-        <slug>
-    caption [multiple]
-        <slug>
-    describe [describe]
-        <slug>
-        --preview
+        <query>
+    caption
+        [queries...]
+        --multiple
+    describe
+        [queries...]
+        --multiple
+        --reflect
     mutate
-        <slug>
+        [queries...]
+        --multiple
+        --reflect
+        --no-prompt
     archive
-        <slug>
+        [queries...]
+        --multiple
 
 volumes
     add
