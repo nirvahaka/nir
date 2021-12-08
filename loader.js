@@ -6,19 +6,19 @@
 // Run with the following flags 👇
 // --no-warnings --experimental-modules --es-module-specifier-resolution=node --loader loader.js
 
+import dirname from 'es-dirname'
 import path from 'path'
 
 import app from './package.json'
 
 const get = () => {
-    const base = process.cwd()
     const aliases = app.aliases || {}
 
     const absolute = Object.keys(aliases).reduce(
         (acc, key) =>
             aliases[key][0] === '/'
                 ? acc
-                : { ...acc, [key]: path.join(base, aliases[key]) },
+                : { ...acc, [key]: path.join(dirname(), aliases[key]) },
         aliases,
     )
 
