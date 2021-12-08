@@ -2,7 +2,7 @@
     "name": "nir",
     "description": "( निर्वाहक ) - A CLI 🚀 for structurally 📡 creating, managing, and storing 📹 video projects.",
     "version": "4.0.0",
-    "license": "UNLICENSED",
+    "license": "GPL-2.0-only",
     "type": "module",
     "bin": "node dist/index.js",
     "homepage": "https://github.com/nirvahaka/nir#readme",
