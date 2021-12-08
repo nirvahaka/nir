@@ -32,4 +32,6 @@ export default new Command()
     .option('--mode <init|link>', 'whether to create directory structure', 'link')
     .option('--force', 'allow initializing on non-empty directory', false)
     .option('--set-active', 'mark the newly created volume as active', false)
-    .action(action);
+    .action(action)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

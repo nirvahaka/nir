@@ -48,4 +48,6 @@ export default new Command()
     .name('remove')
     .description("deletes a given volume including it's content")
     .argument('<name>', 'unique name of the volume')
-    .action(action);
+    .action(action)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

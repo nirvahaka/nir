@@ -43,4 +43,6 @@ export default new Command()
     if (key == 'database')
         return await setDatabaseURL(value);
     await set(key, value);
-});
+})
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

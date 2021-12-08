@@ -11,4 +11,6 @@ export default new Command()
     .action(async (key) => {
     const value = await get(key);
     console.log(value);
-});
+})
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

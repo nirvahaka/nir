@@ -12,4 +12,6 @@ export default new Command()
     .addOption(new Option('-f, --format <fmt>', 'format to output in').default('string'))
     .action(action)
     .addCommand(set)
-    .addCommand(get);
+    .addCommand(get)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

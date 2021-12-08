@@ -15,6 +15,8 @@ export default async () => {
     program
         .name(name)
         .version(version)
+        .allowExcessArguments(false)
+        .allowUnknownOption(false)
         .addCommand(config)
         .addCommand(volumes)
         .addCommand(videos);

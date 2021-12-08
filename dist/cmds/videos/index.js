@@ -8,4 +8,6 @@ export default new Command()
     .name('videos')
     .description('prints a table of recently created videos')
     .option('--no-pretty', 'print a pretty table instead of JSON', true)
-    .addCommand(add);
+    .addCommand(add)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

@@ -53,3 +53,5 @@ export default new Command()
 
         await set(key, value)
     })
+    .allowExcessArguments(false)
+    .allowUnknownOption(false)

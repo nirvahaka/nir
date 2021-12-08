@@ -41,4 +41,6 @@ const action = async () => {
 export default new Command()
     .name('add')
     .description('creates a new video resource')
-    .action(action);
+    .action(action)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

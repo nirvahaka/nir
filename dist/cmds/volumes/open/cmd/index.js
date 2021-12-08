@@ -25,4 +25,6 @@ export default new Command()
     .name('open')
     .description('opens a given volume in the default file manager')
     .argument('<name>', 'unique name of the volume')
-    .action(action);
+    .action(action)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false);

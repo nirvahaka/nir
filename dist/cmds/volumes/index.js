@@ -12,6 +12,8 @@ export default new Command()
     .description('prints a table of all volumes')
     .option('--no-pretty', 'print a pretty table instead of JSON', true)
     .action(root)
+    .allowExcessArguments(false)
+    .allowUnknownOption(false)
     .addCommand(add)
     .addCommand(open)
     .addCommand(remove);
