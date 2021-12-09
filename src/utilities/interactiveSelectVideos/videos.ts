@@ -50,6 +50,18 @@ export default async (search: string) => {
     }
 
     if (search) {
+        // add a latest keyword, which will always result in the
+        // last created video resource
+        if (search == 'latest')
+            return [
+                await db.video.findFirst({
+                    select,
+                    orderBy: {
+                        created: 'desc',
+                    },
+                }),
+            ]
+
         // a workaround to support multiple words
         // in full text search in Prisma.js
         // see https://github.com/prisma/docs/issues/2233
