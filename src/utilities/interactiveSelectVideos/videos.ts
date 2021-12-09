@@ -62,8 +62,16 @@ export default async (search: string) => {
                 title: { search },
                 volumeName: { search },
             },
+            orderBy: {
+                created: 'desc',
+            },
         })
     }
 
-    return await db.video.findMany({ select })
+    return await db.video.findMany({
+        select,
+        orderBy: {
+            created: 'desc',
+        },
+    })
 }

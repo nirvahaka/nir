@@ -42,7 +42,15 @@ export default async (search) => {
                 title: { search },
                 volumeName: { search },
             },
+            orderBy: {
+                created: 'desc',
+            },
         });
     }
-    return await db.video.findMany({ select });
+    return await db.video.findMany({
+        select,
+        orderBy: {
+            created: 'desc',
+        },
+    });
 };
