@@ -7,6 +7,7 @@ import { Command } from 'commander'
 
 import add from './add/cmd/index.js'
 import open from './open/cmd/index.js'
+import remove from './remove/cmd/index.js'
 
 export default new Command()
     .name('videos')
@@ -14,5 +15,6 @@ export default new Command()
     .option('--no-pretty', 'print a pretty table instead of JSON', true)
     .addCommand(add)
     .addCommand(open)
+    .addCommand(remove)
     .allowExcessArguments(false)
     .allowUnknownOption(false)

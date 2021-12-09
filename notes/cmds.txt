@@ -12,7 +12,7 @@ videos
         --multiple
         Note: "latest" will automatically get the last created video
     remove
-        <query>
+        <slug>
     caption
         [queries...]
         --multiple
