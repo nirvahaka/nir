@@ -4,6 +4,7 @@
  */
 
 import fs from 'fs/promises'
+import mkdirp from 'mkdirp'
 import os from 'os'
 import path from 'path'
 import { create } from 'vyuha'
@@ -42,6 +43,9 @@ const addVolumeToDatabase = async (name: string, dir: string) => {
 const createFileSystem = async (dir: string, force: boolean) => {
     // resolve the path
     dir = path.resolve(dir)
+
+    // create that directory in case it doesn't exist
+    await mkdirp(dir)
 
     // check if the provided directory exists
     const stats = await fs.stat(dir)

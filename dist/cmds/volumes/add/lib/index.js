@@ -3,6 +3,7 @@
  *  Created On 24 October 2021
  */
 import fs from 'fs/promises';
+import mkdirp from 'mkdirp';
 import os from 'os';
 import path from 'path';
 import { create } from 'vyuha';
@@ -27,6 +28,8 @@ const addVolumeToDatabase = async (name, dir) => {
 const createFileSystem = async (dir, force) => {
     // resolve the path
     dir = path.resolve(dir);
+    // create that directory in case it doesn't exist
+    await mkdirp(dir);
     // check if the provided directory exists
     const stats = await fs.stat(dir);
     if (stats.isDirectory() == false)
