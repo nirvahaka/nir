@@ -3,7 +3,10 @@
  *  Created On 12 December 2021
  */
 import { diff } from 'deep-object-diff';
+import dirname from 'es-dirname';
+import glob from 'glob';
 import yaml from 'js-yaml';
+import path from 'path';
 import readFileInput from 'read-file-input';
 import { get } from '~cmds/config/get/lib/index.js';
 export default async (videos) => {
@@ -49,7 +52,20 @@ export default async (videos) => {
         // todo: handle when slug doesn't match with existing
         // get diff
         const changes = diff(src, edited);
-        console.log(changes);
-        // todo: reflect on the changes!
+        // reflect on the changes accordingly
+        const files = glob.sync(path.join(dirname(), 'handlers', '*.js'));
+        const handlers = {};
+        // populate all handler files
+        for (const file of files) {
+            const { default: handler } = await import('file://' + file);
+            handlers[path.parse(file).name] = handler;
+        }
+        for (const key in changes) {
+            const handler = handlers[key];
+            // todo: throw a warning when there is no handler
+            // because they're not supposed to edit that field
+            // execute the handler
+            await handler(changes, edited, src);
+        }
     }
 };
