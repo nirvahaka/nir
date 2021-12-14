@@ -24,6 +24,9 @@
             ],
             "~util/*": [
                 "utilities/*"
+            ],
+            "~server/*": [
+                "server/*"
             ]
         }
     }

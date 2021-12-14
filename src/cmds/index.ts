@@ -9,6 +9,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import config from './config/index.js'
+import login from './login/index.js'
 import videos from './videos/index.js'
 import volumes from './volumes/index.js'
 
@@ -27,6 +28,7 @@ export default async () => {
         .version(version)
         .allowExcessArguments(false)
         .allowUnknownOption(false)
+        .addCommand(login)
         .addCommand(config)
         .addCommand(volumes)
         .addCommand(videos)
