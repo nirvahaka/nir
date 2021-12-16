@@ -25,7 +25,8 @@
         "~logger": "dist/logger",
         "~cmds": "dist/cmds",
         "~util": "dist/utilities",
-        "~server": "dist/server"
+        "~server": "dist/server",
+        "~vendor": "dist/vendor"
     },
     "dependencies": {
         "@prisma/client": "^3.6.0",
