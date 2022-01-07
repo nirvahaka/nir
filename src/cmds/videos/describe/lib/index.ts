@@ -13,9 +13,6 @@ import yaml from 'js-yaml'
 import path from 'path'
 import promisedHandlebars from 'promised-handlebars'
 
-import getVideoCategory from '~util/getVideoCategory/index.js'
-import getYouTube from '~vendor/youtube.js'
-
 // create an instance of promised handlebars
 // templating engine
 const hbs = promisedHandlebars(handlebars)
@@ -24,10 +21,13 @@ interface DescribeConfig {
     data: unknown
     template: string
     video: video
-    reflect: boolean
 }
 
-export default async ({ data, reflect, template, video }: DescribeConfig) => {
+export default async ({
+    data,
+    template,
+    video,
+}: DescribeConfig): Promise<string> => {
     // parse the specific description
     const specific = yaml.load(video.description) || {}
 
@@ -49,33 +49,6 @@ export default async ({ data, reflect, template, video }: DescribeConfig) => {
     // compile the handlebars template
     const compile = hbs.compile(template)
 
-    // render our compiled data
-    const description = await compile(data)
-
-    // if we don't need to reflect, we'll show it
-    // and terminate here
-    if (!reflect) {
-        console.log(description.trim())
-        return
-    }
-
-    // get the YouTube client
-    const { auth, youtube } = await getYouTube()
-
-    // get the video category
-    const categoryId = await getVideoCategory(auth, youtube)
-
-    // let's update the description on YouTube
-    await youtube.videos.update({
-        auth,
-        part: ['snippet'],
-        requestBody: {
-            id: video.youtube,
-            snippet: {
-                categoryId,
-                description: description.trim(),
-                title: video.title,
-            },
-        },
-    })
+    // render our compiled data into description & return
+    return (await compile(data)).trim()
 }

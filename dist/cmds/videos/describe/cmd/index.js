@@ -4,42 +4,43 @@
  */
 import { Command } from 'commander';
 import yaml from 'js-yaml';
+import readFileInput from 'read-file-input';
 import { get } from '~cmds/config/get/lib/index.js';
-import { logger } from '~logger/index.js';
 import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
 import describe from '../lib/index.js';
-const action = async (query, { multiple, reflect }) => {
+const action = async (query, { multiple, editor }) => {
     // interactively ask the user
     // which video(s) he/she/they wants to operate on
-    let videos = await interactiveSelectVideos({
+    const videos = await interactiveSelectVideos({
         multiple: Boolean(multiple),
         search: query.join(' ').trim(),
     });
-    // check if there are any videos which are unpublished
-    const unpublished = videos.filter(video => video.status != 'published');
-    // handle when the user selects reflect & there's
-    // an unpublished video on this list
-    if (reflect && unpublished.length > 0) {
-        if (videos.length == 2) {
-            logger.error(`Cannot reflect description for this unpublished video`, 2);
-        }
-        else {
-            logger.warning(`The following unpublished videos will be ignored`);
-            console.log(unpublished.map(video => video.title).join('\n'));
-            videos = videos.filter(video => video.status == 'published');
-        }
-    }
     // get both the description template & data
     const template = ((await get('description.template')) || '');
     const data = yaml.load(await get('description')) || {};
     // loop through each video and generate the description
-    for (const video of videos)
-        await describe({ data, template, video, reflect });
+    // in async and then resolve promise when all of them are done
+    const descriptions = await Promise.all(videos.map(video => describe({ data, template, video })));
+    // use editor automatically if there's more then one video
+    if (descriptions.length > 1 || editor == true) {
+        // open the configured editor as per request
+        for (const data of descriptions) {
+            readFileInput({
+                editor: await get('editor'),
+                content: {
+                    data,
+                },
+            });
+        }
+    }
+    else {
+        console.log(descriptions[0]);
+    }
 };
 export default new Command()
     .name('describe')
-    .description('creates description for selected videos')
+    .description('preview description for selected videos')
     .action(action)
     .argument('[queries...]')
-    .option('--multiple', 'create description for multiple videos')
-    .option('--reflect', 'update the changes on the published video');
+    .option('--multiple', 'preview description for multiple videos')
+    .option('--editor', 'open the description in the editor instead of outputing');
