@@ -11,6 +11,7 @@ import path from 'path'
 import readFileInput from 'read-file-input'
 
 import { get } from '~cmds/config/get/lib/index.js'
+import { db } from '~database/index.js'
 
 export default async (videos: any[]) => {
     // remove fields that are not allowed to be edited
@@ -22,6 +23,7 @@ export default async (videos: any[]) => {
         'published',
         'archived',
         'status',
+        'synced',
     ]
     for (const video of videos) {
         for (const key of remove) delete video[key]
@@ -71,6 +73,17 @@ export default async (videos: any[]) => {
             const { default: handler } = await import('file://' + file)
             handlers[path.parse(file).name] = handler
         }
+
+        // mark that video as out of sync if any values were changed
+        if (Object.keys(changes).length > 0)
+            await db.video.update({
+                where: {
+                    slug: src.slug,
+                },
+                data: {
+                    synced: false,
+                },
+            })
 
         for (const key in changes) {
             const handler = handlers[key]

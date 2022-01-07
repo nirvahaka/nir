@@ -10,7 +10,7 @@ import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js'
 
 import mutateVideos from '../lib/index.js'
 
-const action = async (query, { multiple, reflect }) => {
+const action = async (query, { multiple }) => {
     // interactively ask the user
     // which video(s) he/she/they wants to operate on
     await mutateVideos(

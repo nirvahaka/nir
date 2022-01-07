@@ -12,6 +12,4 @@ export default async ({ title }, changed, original) => {
             slug: original.slug,
         },
     });
-    // todo: update on YouTube as well
-    // if that video is published
 };

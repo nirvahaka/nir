@@ -17,7 +17,4 @@ export default async ({ description }, changed, original) => {
             slug: original.slug,
         },
     })
-
-    // todo: update the description on YouTube
-    // as well if reflect has been given!
 }
