@@ -35,6 +35,7 @@ const action = async (query, { multiple, editor }) => {
         // open the configured editor as per request
         for (const data of descriptions) {
             readFileInput({
+                noWait: true,
                 editor: await get('editor'),
                 content: {
                     data,
