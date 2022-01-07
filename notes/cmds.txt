@@ -19,12 +19,14 @@ videos
     describe
         [queries...]
         --multiple
-        --reflect
+        --editor
     mutate
         [queries...]
         --multiple
-        --reflect
-        --no-prompt
+    sync
+        [queries...]
+        --multiple
+        --force
     archive
         [queries...]
         --multiple
