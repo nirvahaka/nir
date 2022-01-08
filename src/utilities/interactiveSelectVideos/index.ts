@@ -8,14 +8,15 @@ import enquirer from 'enquirer'
 
 import getVideos, { populateVideoFully, transformVideos } from './videos.js'
 
-interface InteractiveSelectVideosConfigImpl {
+export interface InteractiveSelectVideosConfigImpl {
     multiple: boolean
     search: string
+    where?: any
 }
 
 export default async (config: InteractiveSelectVideosConfigImpl) => {
     // get all videos from the database
-    const videos = await getVideos(config.search)
+    const videos = await getVideos(config)
 
     // return that entry if there's only one video
     if (videos.length == 1) return await populateVideoFully(videos)

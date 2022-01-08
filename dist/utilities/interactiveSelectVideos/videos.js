@@ -24,7 +24,7 @@ export const populateVideoFully = async (videos) => {
     }
     return videos;
 };
-export default async (search) => {
+export default async ({ search, where }) => {
     const select = {
         slug: true,
         title: true,
@@ -36,6 +36,7 @@ export default async (search) => {
         if (search == 'latest')
             return [
                 await db.video.findFirst({
+                    where,
                     select,
                     orderBy: {
                         created: 'desc',
@@ -49,9 +50,12 @@ export default async (search) => {
         return await db.video.findMany({
             select,
             where: {
-                slug: { search },
-                title: { search },
-                volumeName: { search },
+                ...{
+                    slug: { search },
+                    title: { search },
+                    volumeName: { search },
+                },
+                ...where,
             },
             orderBy: {
                 created: 'desc',
@@ -59,6 +63,7 @@ export default async (search) => {
         });
     }
     return await db.video.findMany({
+        where,
         select,
         orderBy: {
             created: 'desc',

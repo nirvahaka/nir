@@ -7,6 +7,7 @@ import { object } from '@vsnthdev/utilities-node'
 
 import { db } from '~database/index.js'
 
+import { InteractiveSelectVideosConfigImpl } from '.'
 import { video } from '.prisma/client'
 
 interface TrimmedVideo {
@@ -42,7 +43,7 @@ export const populateVideoFully = async (
     return videos as video[]
 }
 
-export default async (search: string) => {
+export default async ({ search, where }: InteractiveSelectVideosConfigImpl) => {
     const select = {
         slug: true,
         title: true,
@@ -55,6 +56,7 @@ export default async (search: string) => {
         if (search == 'latest')
             return [
                 await db.video.findFirst({
+                    where,
                     select,
                     orderBy: {
                         created: 'desc',
@@ -70,9 +72,12 @@ export default async (search: string) => {
         return await db.video.findMany({
             select,
             where: {
-                slug: { search },
-                title: { search },
-                volumeName: { search },
+                ...{
+                    slug: { search },
+                    title: { search },
+                    volumeName: { search },
+                },
+                ...where,
             },
             orderBy: {
                 created: 'desc',
@@ -81,6 +86,7 @@ export default async (search: string) => {
     }
 
     return await db.video.findMany({
+        where,
         select,
         orderBy: {
             created: 'desc',

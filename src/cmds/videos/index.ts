@@ -11,6 +11,7 @@ import describe from './describe/cmd/index.js'
 import mutate from './mutate/cmd/index.js'
 import open from './open/cmd/index.js'
 import remove from './remove/cmd/index.js'
+import sync from './sync/cmd/index.js'
 
 export default new Command()
     .name('videos')
@@ -21,6 +22,7 @@ export default new Command()
     .addCommand(caption)
     .addCommand(describe)
     .addCommand(mutate)
+    .addCommand(sync)
     .addCommand(remove)
     .allowExcessArguments(false)
     .allowUnknownOption(false)
