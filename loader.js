@@ -9,7 +9,7 @@
 import dirname from 'es-dirname'
 import path from 'path'
 
-import app from './package.json'
+import app from './package.json' assert { type: 'json' }
 
 const get = () => {
     const aliases = app.aliases || {}
