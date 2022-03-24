@@ -18,6 +18,11 @@ export default async ({ data, template, video, }) => {
     const specific = yaml.load(video.description) || {};
     // override the specific with data
     data = merge(data, specific);
+    // make sure, strings don't have newlines at the end
+    // because they would conflict with Handlebars template newlines
+    for (const key in data)
+        if (typeof data[key] == 'string')
+            data[key] = data[key].trim();
     // load the helpers
     const helperFiles = glob.sync(path.join(dirname(), 'helpers', '*.js'));
     // loop through each JavaScript file and register
@@ -30,5 +35,5 @@ export default async ({ data, template, video, }) => {
     // compile the handlebars template
     const compile = hbs.compile(template);
     // render our compiled data into description & return
-    return (await compile(data)).trim();
+    return (await compile(data)).replace(/\n\s*\n/g, '\n\n').trim();
 };
