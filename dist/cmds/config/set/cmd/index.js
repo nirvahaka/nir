@@ -41,7 +41,7 @@ const action = async (key, value) => {
     // check if a value has been given, if yes
     // then accept that, or else we show an interactive
     // editor window
-    if (!value)
+    if (!value) {
         value = await readFileInput({
             editor: await get('editor'),
             name: filename[key] || filename.default,
@@ -49,6 +49,8 @@ const action = async (key, value) => {
                 data: await get(key),
             },
         });
+        value = value.trim();
+    }
     // handle setting the database URL
     if (key == 'database')
         return await setDatabaseURL(value);
