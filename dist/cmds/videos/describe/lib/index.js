@@ -33,7 +33,7 @@ export default async ({ data, template, video, }) => {
         hbs.registerHelper(name, helper);
     }
     // compile the handlebars template
-    const compile = hbs.compile(template);
+    const compile = hbs.compile(template, { noEscape: true });
     // render our compiled data into description & return
     return (await compile(data)).replace(/\n\s*\n/g, '\n\n').trim();
 };
