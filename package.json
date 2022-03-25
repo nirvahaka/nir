@@ -31,6 +31,7 @@
     "dependencies": {
         "@prisma/client": "^3.11.0",
         "@vsnthdev/utilities-node": "^2.0.1",
+        "axios": "^0.26.1",
         "chalk": "^5.0.1",
         "cli-highlight": "^2.1.11",
         "cli-table": "^0.3.11",
@@ -47,6 +48,8 @@
         "itivrutaha": "^2.0.13",
         "js-yaml": "^4.1.0",
         "luxon": "^2.3.1",
+        "metascraper": "^5.27.1",
+        "metascraper-title": "^5.26.0",
         "mkdirp": "^1.0.4",
         "node-fetch": "^3.2.3",
         "open": "^8.4.0",
