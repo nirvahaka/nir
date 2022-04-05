@@ -7,6 +7,7 @@ import { Command } from 'commander'
 import dirname from 'es-dirname'
 import fs from 'fs/promises'
 import path from 'path'
+import rupa from 'rupa'
 
 import config from './config/index.js'
 import login from './login/index.js'
@@ -32,6 +33,8 @@ export default async () => {
         .addCommand(config)
         .addCommand(volumes)
         .addCommand(videos)
+
+    rupa(program)
 
     return await program.parseAsync()
 }
