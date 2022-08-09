@@ -3,10 +3,10 @@
  *  Created On 08 January 2022
  */
 import { Command } from 'commander';
-import { db } from '~database/index.js';
-import getVideoCategory from '~util/getVideoCategory/index.js';
-import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
-import getYouTube from '~vendor/youtube.js';
+import { db } from '../../../../database/index.js';
+import getVideoCategory from '../../../../utilities/getVideoCategory/index.js';
+import interactiveSelectVideos from '../../../../utilities/interactiveSelectVideos/index.js';
+import getYouTube from '../../../../vendor/youtube.js';
 import syncMetadata from '../lib/index.js';
 const action = async (query, { multiple, force }) => {
     let videos;

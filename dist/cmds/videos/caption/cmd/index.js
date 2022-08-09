@@ -3,8 +3,8 @@
  *  Created On 10 December 2021
  */
 import { Command } from 'commander';
-import { getPlatformPathString } from '~cmds/volumes/add/lib';
-import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
+import { getPlatformPathString } from '../../../volumes/add/lib/index.js';
+import interactiveSelectVideos from '../../../../utilities/interactiveSelectVideos/index.js';
 import createCaptions from '../lib/index.js';
 const action = async (query, { multiple }) => {
     // interactively ask the user

@@ -5,8 +5,8 @@
 import { DateTime } from 'luxon';
 import path from 'path';
 import rcp from 'recursive-copy';
-import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js';
-import { db } from '~database/index.js';
+import { getPlatformPathString } from '../../../volumes/add/lib/index.js';
+import { db } from '../../../../database/index.js';
 const filesystem = async (video, volume) => {
     // todo: handle when the volume doesn't have a path
     // for this operating system

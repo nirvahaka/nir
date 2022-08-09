@@ -8,8 +8,8 @@ import dirname from 'es-dirname';
 import fs from 'fs/promises';
 import path from 'path';
 import readFileInput from 'read-file-input';
-import { get } from '~cmds/config/get/lib/index.js';
-import { logger } from '~logger/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import { logger } from '../../../../logger/index.js';
 import { set } from '../lib/index.js';
 import filename from './filename.js';
 const setDatabaseURL = async (url) => {

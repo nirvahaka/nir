@@ -5,10 +5,10 @@
  */
 import { google } from 'googleapis';
 import open from 'open';
-import { get } from '~cmds/config/get/lib/index.js';
-import { set } from '~cmds/config/set/lib/index.js';
-import { host, port } from '~server/index.js';
-import captureToken from '~server/tokens/index.js';
+import { get } from '../../config/get/lib/index.js';
+import { set } from '../../config/set/lib/index.js';
+import { host, port } from '../../../server/index.js';
+import captureToken from '../../../server/tokens/index.js';
 export default async () => {
     // define the scopes we need to manage
     // a particular YouTube channel

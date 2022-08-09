@@ -4,10 +4,10 @@
  */
 import { Command } from 'commander';
 import rimraf from 'rimraf';
-import { get } from '~cmds/config/get/lib/index.js';
-import { set } from '~cmds/config/set/lib/index.js';
-import { db } from '~database/index.js';
-import { logger } from '~logger/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import { set } from '../../../config/set/lib/index.js';
+import { db } from '../../../../database/index.js';
+import { logger } from '../../../../logger/index.js';
 import { getPlatformPathString } from '../../add/lib/index.js';
 const action = async (name) => {
     const isActive = (await get('volumes.active')) == name;

@@ -6,9 +6,9 @@ import { Command } from 'commander';
 import yaml from 'js-yaml';
 import readFileInput from 'read-file-input';
 import slug from 'slug';
-import { get } from '~cmds/config/get/lib/index.js';
-import { db } from '~database/index.js';
-import hasActiveVolume from '~util/activeVolume/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import { db } from '../../../../database/index.js';
+import hasActiveVolume from '../../../../utilities/activeVolume/index.js';
 import createVideo from '../lib/index.js';
 const action = async () => {
     // check if there is an active volume

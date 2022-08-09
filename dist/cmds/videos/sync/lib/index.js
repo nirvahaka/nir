@@ -4,9 +4,9 @@
  */
 import yaml from 'js-yaml';
 import { DateTime } from 'luxon';
-import { get } from '~cmds/config/get/lib/index.js';
-import describe from '~cmds/videos/describe/lib/index.js';
-import { db } from '~database/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import describe from '../../../videos/describe/lib/index.js';
+import { db } from '../../../../database/index.js';
 export default async ({ auth, categoryId, video, youtube, }) => {
     // get both the description template & data
     const template = ((await get('description.template')) || '');

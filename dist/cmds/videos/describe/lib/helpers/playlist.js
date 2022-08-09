@@ -2,7 +2,7 @@
  *  Returns a playlist block with the video block combined.
  *  Created On 26 March 2022
  */
-import getYouTube from '~vendor/youtube.js';
+import getYouTube from '../../../../../vendor/youtube.js';
 export default async (id) => {
     // get YouTube's authenticated API client
     const { auth, youtube } = await getYouTube();

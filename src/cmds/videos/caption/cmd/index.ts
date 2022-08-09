@@ -5,7 +5,7 @@
 
 import { Command } from 'commander'
 
-import { getPlatformPathString } from '~cmds/volumes/add/lib'
+import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js'
 import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js'
 
 import createCaptions from '../lib/index.js'

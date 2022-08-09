@@ -3,8 +3,8 @@
  *  Created On 16 December 2021
  */
 import { google } from 'googleapis';
-import { get } from '~cmds/config/get/lib/index.js';
-import { set } from '~cmds/config/set/lib/index.js';
+import { get } from '../cmds/config/get/lib/index.js';
+import { set } from '../cmds/config/set/lib/index.js';
 export default async () => {
     // create a new authentication client
     const auth = new google.auth.OAuth2({

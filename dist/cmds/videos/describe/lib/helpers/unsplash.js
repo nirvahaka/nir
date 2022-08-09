@@ -4,7 +4,7 @@
  */
 import fetch from 'node-fetch';
 import { createApi } from 'unsplash-js';
-import { get } from '~cmds/config/get/lib/index.js';
+import { get } from '../../../../config/get/lib/index.js';
 export default async (photoId) => {
     // initialize a new Unsplash client
     const unsplash = createApi({

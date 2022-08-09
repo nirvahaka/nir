@@ -2,7 +2,7 @@
  *  Library function that reads a config key into the database.
  *  Created On 19 October 2021
  */
-import { db } from '~database/index.js';
+import { db } from '../../../../database/index.js';
 // todo: move this function to @vsnthdev/utilities
 export const primitiveParse = (value) => {
     try {

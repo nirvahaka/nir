@@ -8,8 +8,8 @@ import glob from 'glob';
 import yaml from 'js-yaml';
 import path from 'path';
 import readFileInput from 'read-file-input';
-import { get } from '~cmds/config/get/lib/index.js';
-import { db } from '~database/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import { db } from '../../../../database/index.js';
 export default async (videos) => {
     // remove fields that are not allowed to be edited
     // directly like that

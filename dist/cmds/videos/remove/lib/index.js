@@ -5,8 +5,8 @@
  */
 import path from 'path';
 import rimraf from 'rimraf';
-import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js';
-import { db } from '~database/index.js';
+import { getPlatformPathString } from '../../../volumes/add/lib/index.js';
+import { db } from '../../../../database/index.js';
 export default async (slug) => {
     // check if the video has an active status
     const { status, volume } = await db.video.findFirst({

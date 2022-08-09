@@ -4,7 +4,7 @@
  *  Created On 11 December 2021
  */
 import { Command } from 'commander';
-import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
+import interactiveSelectVideos from '../../../../utilities/interactiveSelectVideos/index.js';
 import mutateVideos from '../lib/index.js';
 const action = async (query, { multiple }) => {
     // interactively ask the user

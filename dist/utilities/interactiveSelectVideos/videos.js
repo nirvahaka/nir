@@ -3,7 +3,7 @@
  *  Created On 09 December 2021
  */
 import { object } from '@vsnthdev/utilities-node';
-import { db } from '~database/index.js';
+import { db } from '../../database/index.js';
 export const transformVideos = (videos) => videos.map(video => {
     object.renameKey('title', 'name', video);
     object.renameKey('slug', 'value', video);

@@ -2,7 +2,7 @@
  *  Takes a video ID & returns a video description block.
  *  Created On 25 March 2022
  */
-import getYouTube from '~vendor/youtube.js';
+import getYouTube from '../../../../../vendor/youtube.js';
 export default async (id) => {
     // get YouTube's authenticated API client
     const { auth, youtube } = await getYouTube();

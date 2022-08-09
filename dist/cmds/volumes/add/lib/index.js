@@ -7,7 +7,7 @@ import mkdirp from 'mkdirp';
 import os from 'os';
 import path from 'path';
 import { create } from 'vyuha';
-import { db } from '~database/index.js';
+import { db } from '../../../../database/index.js';
 import { structure } from './filesystem.js';
 export const getPlatformPathString = () => `${os.platform().replace(/[0-9]/g, '')}Path`;
 const addVolumeToDatabase = async (name, dir) => {

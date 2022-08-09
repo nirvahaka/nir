@@ -5,8 +5,8 @@
 import { Command } from 'commander';
 import yaml from 'js-yaml';
 import readFileInput from 'read-file-input';
-import { get } from '~cmds/config/get/lib/index.js';
-import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
+import { get } from '../../../config/get/lib/index.js';
+import interactiveSelectVideos from '../../../../utilities/interactiveSelectVideos/index.js';
 import describe from '../lib/index.js';
 const action = async (query, { multiple, editor }) => {
     // interactively ask the user

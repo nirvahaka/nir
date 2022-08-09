@@ -4,7 +4,7 @@
  */
 import chalk from 'chalk';
 import express from 'express';
-import { logger } from '~logger/index.js';
+import { logger } from '../../logger/index.js';
 import { host, port } from '../index.js';
 export default (onStart) => new Promise(resolve => {
     const app = express();

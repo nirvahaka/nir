@@ -5,8 +5,8 @@
 import { Command } from 'commander';
 import open from 'open';
 import path from 'path';
-import { getPlatformPathString } from '~cmds/volumes/add/lib/index.js';
-import interactiveSelectVideos from '~util/interactiveSelectVideos/index.js';
+import { getPlatformPathString } from '../../../volumes/add/lib/index.js';
+import interactiveSelectVideos from '../../../../utilities/interactiveSelectVideos/index.js';
 const action = async (query, { multiple }) => {
     // interactively ask the user
     // which video(s) he/she/they wants to open
