@@ -17,7 +17,7 @@ import volumes from './volumes/index.js'
 const program = new Command()
 
 export default async () => {
-    const { name, version } = JSON.parse(
+    const { name, version, description } = JSON.parse(
         await fs.readFile(
             path.join(dirname(), '..', '..', 'package.json'),
             'utf-8',
@@ -27,6 +27,7 @@ export default async () => {
     program
         .name(name)
         .version(version)
+        .description(description.split('-')[1].trim())
         .allowExcessArguments(false)
         .allowUnknownOption(false)
         .addCommand(login)
