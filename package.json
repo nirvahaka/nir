@@ -42,7 +42,7 @@
         "enquirer": "^2.3.6",
         "es-dirname": "^0.1.0",
         "express": "^4.18.1",
-        "glob": "^8.0.3",
+        "glob": "^7.2.0",
         "googleapis": "^105.0.0",
         "handlebars": "^4.7.7",
         "itivrutaha": "^2.0.14",

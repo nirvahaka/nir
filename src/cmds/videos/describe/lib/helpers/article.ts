@@ -6,7 +6,7 @@
 import axios from 'axios'
 import metascraper from 'metascraper'
 import title from 'metascraper-title'
-import safeLink from './link'
+import safeLink from './link.js'
 
 export default async link => {
     const { data } = await axios({
