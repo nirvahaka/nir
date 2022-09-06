@@ -19,6 +19,6 @@ export default async ({ key, video, }) => {
         .replace(/\r\n|\n|\r/gm, ' ')
         .replace(/  +/g, ' ') + '\n';
     // write the captions file
-    await fs.writeFile(path.join(path.dirname(scriptPath), 'Captions.nir'), content, 'utf-8');
+    await fs.writeFile(path.join(path.dirname(scriptPath), 'Captions.txt'), content, 'utf-8');
     return true;
 };

@@ -42,7 +42,7 @@ export default async ({
 
     // write the captions file
     await fs.writeFile(
-        path.join(path.dirname(scriptPath), 'Captions.nir'),
+        path.join(path.dirname(scriptPath), 'Captions.txt'),
         content,
         'utf-8',
     )
