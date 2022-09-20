@@ -9,6 +9,7 @@ import glob from 'glob'
 import yaml from 'js-yaml'
 import path from 'path'
 import readFileInput from 'read-file-input'
+import { handlers } from './handlers/index.js'
 
 import { get } from '~cmds/config/get/lib/index.js'
 import { db } from '~database/index.js'
@@ -63,16 +64,6 @@ export default async (videos: any[]) => {
 
         // get diff
         const changes = diff(src, edited)
-
-        // reflect on the changes accordingly
-        const files = glob.sync(path.join(dirname(), 'handlers', '*.js'))
-        const handlers = {}
-
-        // populate all handler files
-        for (const file of files) {
-            const { default: handler } = await import('file://' + file)
-            handlers[path.parse(file).name] = handler
-        }
 
         // mark that video as out of sync if any values were changed
         if (Object.keys(changes).length > 0)

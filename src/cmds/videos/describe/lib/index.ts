@@ -4,7 +4,7 @@
  *  Created On 11 December 2021
  */
 
-import { video } from '@prisma/client'
+import type { video } from '@prisma/client'
 import merge from 'deepmerge'
 import dirname from 'es-dirname'
 import glob from 'glob'
@@ -12,6 +12,7 @@ import handlebars from 'handlebars'
 import yaml from 'js-yaml'
 import path from 'path'
 import promisedHandlebars from 'promised-handlebars'
+import { helpers } from './helpers/index.js'
 
 // create an instance of promised handlebars
 // templating engine
@@ -40,14 +41,12 @@ export default async ({
         if (typeof data[key] == 'string') data[key] = data[key].trim()
 
     // load the helpers
-    const helperFiles = glob.sync(path.join(dirname(), 'helpers', '*.js'))
+    // const helperFiles = glob.sync(path.join(dirname(), 'helpers', '*.js'))
 
     // loop through each JavaScript file and register
     // it's default function as a Handlebars helper
-    for (const file of helperFiles) {
-        const { name } = path.parse(file)
-        const { default: helper } = await import(`file://${file}`)
-
+    for (const name in helpers) {
+        const helper = helpers[name]
         hbs.registerHelper(name, helper)
     }
 
